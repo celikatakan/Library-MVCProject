@@ -29,7 +29,7 @@ A comprehensive **MVC Project** designed to manage and streamline library operat
 
 - **Visual Studio**: IDE for efficient and rapid development.
 - **Swagger**: API documentation and testing (if required).
-- **Postman**: Test API requests and responses with ease.
+- **Postman**: Test API requests and responses with ease (if required).
 
 ---
 
