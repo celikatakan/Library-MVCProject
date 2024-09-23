@@ -1,0 +1,38 @@
+﻿@model LoginViewModel
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg" style="border-radius: 20px;">
+            <div class="card-header text-white bg-primary fw-bold fs-4 text-center" style="border-radius: 20px 20px 0 0;">
+                Sign-In Form
+            </div>
+
+            <div class="card-body p-4">
+                <form method="post" asp-controller="Auth" asp-action="SignIn">
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="border-radius: 10px;">
+                        <label for="floatingInput">Email address</label>
+                        <span asp-validation-for="Email" class="text-danger fw-bold mt-1"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" style="border-radius: 10px;">
+                        <label for="floatingPassword">Password</label>
+                        <span asp-validation-for="Password" class="text-danger fw-bold mt-1"></span>
+                    </div>
+
+                    <button class="btn btn-primary w-100 py-2" type="submit" style="border-radius: 10px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+                        Sign in
+                    </button>
+
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a asp-controller="Auth" asp-action="SignUp" class="fw-bold text-decoration-underline">Sign up here</a>.</p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model List<Book>
+<!-- Check if the user is authenticated by checking if the user has an 'id' claim -->
+@if (@User.Claims.FirstOrDefault(x => x.Type == "id")?.Value != null)
+{
+    <!-- Page title for the Book Management Page -->
+    <h3 class="text-center mt-3 page-title">Book Management Page</h3>
+    <style>
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5c3d2e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #e2c6a4;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+    </style>
+
+    <a asp-controller="Book" asp-action="Create" class="mt-4 btn btn-success fw-bold mb-1 mt-7" style="float: right;">Add New Book</a>
+    <div class="mt-2">
+
+        @foreach (var book in Model)
+        {
+            <div class="card" style="width:100%; background-color:lightgray;">
+                <div class="card-body">
+                    <!-- Display the book title -->
+                    <h5 class="card-title">@book.Title </h5> <hr />
+                    <!-- Display the book image with responsive styling -->
+                    <img src="@book.Irl" class="img-fluid rounded-start" alt="Book Image" style="max-width: 150px; height: auto;">
+                    <!-- Link to view book details -->
+                    <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">Details</a>
+                    <!-- Link to edit the book -->
+                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
+                    <!-- Form to delete the book, with a submit button styled as a danger button -->
+                    <form asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id" method="post" style="display:inline-block;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <!-- Alert message when the user is not logged in or registered -->
+    <div class="alert text-center mt-5" style="padding: 30px; border-radius: 12px; background-color: #f1f1f1; border: 1px solid #d3d3d3;">
+        <h2 style="color: #b04c4c; font-weight: bold; font-size: 2rem;">Access Restricted</h2>
+        <p class="mt-4" style="font-size: 1.2rem; color: #6c757d;">You need to log in or register to view this page.</p>
+        <p style="color: #6c757d;">Please log in to access the book management system or create an account if you don't have one.</p>
+        <!-- Buttons to log in or sign up -->
+        <div class="mt-4">
+            <a href="/Auth/SignIn" class="btn btn-lg" style="padding: 10px 20px; font-size: 1.2rem; background-color: #5a9bd6; color: white; border-radius: 8px; margin-right: 15px;">Log In</a>
+            <a href="/Auth/SignUp" class="btn btn-lg" style="padding: 10px 20px; font-size: 1.2rem; background-color: #f7f7f7; color: #5a9bd6; border: 1px solid #5a9bd6; border-radius: 8px;">Register</a>
+        </div>
+    </div>
+}
+
+

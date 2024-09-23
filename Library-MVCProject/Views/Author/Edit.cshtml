@@ -1,0 +1,58 @@
+﻿@model AuthorViewModel
+<!-- Page title for the Author Editing Page -->
+<h3 class="text-center mt-3 page-title">Author Editing Page</h3>
+<style>
+    <!-- Inline CSS to style the page title -->
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5c3d2e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #e2c6a4;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+</style>
+<!-- Form for editing the author, using POST method with AuthorController's Edit action -->
+<form method="post" asp-controller="Author" asp-action="Edit">
+    <div>
+        <label>Author First Name</label>
+        <input asp-for="FirstName" class="form-control" type="text" />
+        <span asp-validation-for="FirstName" class="text-danger mt-2 fw-bold"></span>
+    </div>
+
+    <div>
+        <label>Author Last Name</label>
+        <input asp-for="LastName" class="form-control" type="text" />
+        <span asp-validation-for="LastName" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Job</label>
+        <input asp-for="Job" class="form-control" type="text" />
+        <span asp-validation-for="Job" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Marriages</label>
+        <input asp-for="Marriages" class="form-control" type="text" />
+        <span asp-validation-for="Marriages" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Date Of Birth</label>
+        <input asp-for="DateOfBirth" class="form-control" type="date" />
+        <span asp-validation-for="DateOfBirth" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Image Irl</label>
+        <input asp-for="Irl" class="form-control" type="text" />
+        <span asp-validation-for="Irl" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Author Biography</label>
+        <input asp-for="Bio" class="form-control" type="text" />
+        <span asp-validation-for="Bio" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <!-- Submit button to save the form data -->
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+
+</form>

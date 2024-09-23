@@ -1,0 +1,27 @@
+﻿<nav class="navbar navbar-expand-lg" style="background-color: #f5f0e1; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/Book/List" style="font-size: 1.5rem; color: #5c3d2e;">Library Management System</a>
+        <div class="d-flex">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="nav-link fw-bold ms-3" href="/Book/List" style="padding: 0 15px; color: #5c3d2e; transition: color 0.3s ease;">Books</a>
+                <a class="nav-link fw-bold ms-3" href="/Author/List" style="padding: 0 15px; color: #5c3d2e; transition: color 0.3s ease;">Authors</a>
+                <a class="nav-link fw-bold ms-3" href="/Book/List" style="padding: 0 15px; color: #5c3d2e; transition: color 0.3s ease;">Home</a>
+                <a class="nav-link fw-bold ms-3" href="/Home/About" style="padding: 0 15px; color: #5c3d2e; transition: color 0.3s ease;">About</a>
+
+                <!-- Sign Out Option -->
+                <form class="d-inline" method="post" asp-controller="Auth" asp-action="SignOut">
+                    <button type="submit" class="nav-link btn btn-link fw-bold ms-3 sign-out-btn" style="padding: 0 15px;">Sign Out</button>
+                </form>
+
+                <style>
+                    .sign-out-btn {
+                        color: #d9534f; /* Dark red clour */
+                        text-decoration: none;
+                        transition: color 0.3s ease, text-decoration 0.3s ease;
+                    }
+                </style>
+            }
+        </div>
+    </div>
+</nav>

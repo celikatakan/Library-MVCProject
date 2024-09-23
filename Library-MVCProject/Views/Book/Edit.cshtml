@@ -1,0 +1,59 @@
+﻿@model BookViewModel
+<!-- Page title for the Book Editing Page -->
+<h3 class="text-center mt-3 page-title">Book Editing Page</h3>
+<style> 
+    <!-- Inline CSS to style the page title -->
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5c3d2e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #e2c6a4;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+</style>
+<!-- Form for editing an existing book, using POST method with BookController's Edit action -->
+<form method="post" asp-controller="Book" asp-action="Edit">
+    <div>
+        <label>Author</label>
+        @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.Authors, new { @class = "form-control" })
+        <span asp-validation-for="AuthorId" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" type="text" />
+        <span asp-validation-for="Title" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Genre</label>
+        <input asp-for="Genre" class="form-control" type="text" />
+        <span asp-validation-for="Genre" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Publish Date</label>
+        <input asp-for="PublishDate" class="form-control" type="date" />
+        <span asp-validation-for="PublishDate" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>ISBN</label>
+        <input asp-for="ISBN" class="form-control" type="text" />
+        <span asp-validation-for="ISBN" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Copies Available</label>
+        <input asp-for="CopiesAvailable" class="form-control" type="text" />
+        <span asp-validation-for="CopiesAvailable" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <div>
+        <label>Image Irl</label>
+        <input asp-for="Irl" class="form-control" type="text" />
+        <span asp-validation-for="Irl" class="text-danger mt-2 fw-bold"></span>
+    </div>
+    <!-- Submit button to save the form data -->
+
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+
+
+</form>

@@ -1,0 +1,37 @@
+﻿@model Library_MVCProject.ViewModels.BookViewModel
+<!-- Page title displaying the book's title -->
+<h3 class="text-center mt-3 page-title">@Model.Title</h3>
+<!-- Inline CSS to style the page title -->
+<style>
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5c3d2e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #e2c6a4;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+</style>
+<!-- Bootstrap card to display book details -->
+<div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+        <!-- Column for displaying the book image -->
+        <div class="col-md-4">
+            <img src="@Model.Irl" class="img-fluid rounded-start" alt="Book Image">
+        </div>
+        <!-- Column for displaying book information -->
+        <div class="col-md-4">
+            <div class="card-body">
+                <p><strong>Author Name:</strong> @ViewBag.authorfname</p>
+                <p><strong>Genre:</strong> @Model.Genre</p>
+                <p><strong>Publish Date:</strong> @Model.PublishDate.ToShortDateString()</p>
+                <p><strong>ISBN:</strong> @Model.ISBN</p>
+                <p><strong>Copies Available:</strong> @Model.CopiesAvailable</p>
+                <!-- Button to navigate back to the book list page -->
+                <a asp-controller="Book" asp-action="List" class="btn btn-success fw-bold mb-1 mt-2">Back to list</a>
+            </div>
+        </div>
+    </div>
+</div>

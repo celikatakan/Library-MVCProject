@@ -1,0 +1,41 @@
+﻿@model List<Author>
+
+<h3 class="text-center mt-3 page-title">Author Management Page</h3>
+<style>
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5c3d2e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #e2c6a4;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+</style>
+<!-- Button to navigate to the 'Create' action in the 'Author' controller for adding a new author -->
+<a asp-controller="Author" asp-action="Create" class="mt-4 btn btn-success fw-bold mb-1 mt-7" style="float: right;">Add New Author</a>
+
+<div class="mt-2">
+
+    @foreach (var author in Model)
+    {
+        <div class="card" style="width:100%; background-color:lightgray;">
+            <div class="card-body">
+                <!-- Display the author's full name -->
+                <h5 class="card-title">@author.FirstName @author.LastName </h5> <hr />
+                <!-- Display the author's image with responsive styling -->
+                <img src="@author.Irl" class="img-fluid rounded-start" alt="Book Image" style="max-width: 150px; height: auto;">
+                <!-- Link to view author details -->
+                <a asp-controller="Author" asp-action="Details" asp-route-id="@author.Id" class="btn btn-primary">Details</a>
+                <!-- Link to edit the author -->
+                <a asp-controller="Author" asp-action="Edit" asp-route-id="@author.Id" class="btn btn-primary">Edit</a>
+                <!-- Form to delete the author, with a submit button styled as a danger button -->
+                <form asp-controller="Author" asp-action="Delete" asp-route-id="@author.Id" method="post" style="display:inline-block;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    }
+
+</div>

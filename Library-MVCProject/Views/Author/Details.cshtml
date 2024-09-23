@@ -1,0 +1,36 @@
+﻿@model Library_MVCProject.Models.Author
+<!-- Display the author's full name as the page title -->
+<h3 class="text-center mt-3 page-title">@Model.FullName</h3>
+<style>
+    <!-- Inline CSS for styling the page title -->
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5c3d2e;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #e2c6a4;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+</style>
+<!-- Bootstrap card component for displaying author details -->
+<div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Model.Irl" class="img-fluid rounded-start" alt="Book Image">
+        </div>
+        <!-- Column for displaying the author's detailed information -->
+        <div class="col-md-4">
+            <div class="card-body">
+                <p><strong>Jobs:</strong> @Model.Job</p>
+                <p><strong>Marriages:</strong> @Model.Marriages</p>
+                <p><strong>Date Of Birth:</strong> @Model.DateOfBirth.ToShortDateString()</p>
+                <p><strong>Biography:</strong> @Model.Bio</p>
+                <!-- Button to navigate back to the author list page -->
+                <a asp-controller="Author" asp-action="List" class="btn btn-success fw-bold mb-1 mt-2">Back to list</a>
+                
+            </div>
+        </div>
+    </div>
+</div>

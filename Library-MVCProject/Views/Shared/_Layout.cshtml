@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <!-- Link to the Bootstrap CSS file to apply styling across the site -->
+    <link href="~/lib/bootstrap.css" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Ensures that the main content takes up available space */
+        }
+    </style>
+</head>
+<body>
+    <!-- Render the navigation bar partial view -->
+    <partial name="_navbarPartial" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="alert alert-info fw-bold content-box" style="background-color: #f6e8d6; border: 1px solid #e2c6a4; border-radius: 8px; padding: 20px; text-align: center;">
+            <span class="welcome-message" style="font-size: 1.2rem; color: #5c3d2e;">Welcome – @User.Claims.FirstOrDefault(x => x.Type == "fullname")?.Value</span> <br />
+            <span style="color: #5c3d2e;">@User.Claims.FirstOrDefault(x => x.Type == "email")?.Value</span><br />
+        </div>
+    }
+  
+    <div class="container">
+        <!-- Main content area of the page -->
+        <main role="main" class="pb-3">
+            <!-- This placeholder will be replaced by the content of the specific page -->
+            @RenderBody()
+        </main>
+    </div>
+    <!-- Footer section that appears at the bottom of the page -->
+    <footer class="bg-secondary py-3 mt-auto text-light">
+        <div class="container text-center">
+            <!-- Display the copyright notice with the current year -->
+            <p class="mb-0">&copy; @DateTime.Now.Year - Copyrighted by Atakan Çelik </p>
+        </div>
+    </footer>
+</body>
+</html>
