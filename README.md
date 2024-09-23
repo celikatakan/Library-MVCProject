@@ -5,13 +5,11 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-10">
-          
             <div class="text-center mb-5">
                 <h2 class="display-5 fw-bold">About the Library</h2>
                 <p class="lead text-muted">Library Management System - MVC Project</p>
             </div>
 
-            
             <div class="card shadow-sm border-0 mb-5">
                 <div class="card-body p-4">
                     <h3 class="fw-bold mb-4"><i class="bi bi-tools me-2"></i>Technologies Used</h3>
@@ -27,7 +25,6 @@
                 </div>
             </div>
 
-            <!-- Card Section for Features -->
             <div class="card shadow-sm border-0 mb-5">
                 <div class="card-body p-4">
                     <h3 class="fw-bold mb-4"><i class="bi bi-layers-fill me-2"></i>Features of the Project</h3>
@@ -40,7 +37,6 @@
                 </div>
             </div>
 
-            <!-- Additional Tools Section -->
             <div class="card shadow-sm border-0 mb-5">
                 <div class="card-body p-4">
                     <h3 class="fw-bold mb-4"><i class="bi bi-wrench-adjustable-circle-fill me-2"></i>Additional Tools</h3>
@@ -52,7 +48,6 @@
                 </div>
             </div>
 
-            <!-- Future Improvements Section -->
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
                     <h3 class="fw-bold mb-4"><i class="bi bi-lightbulb-fill me-2"></i>Future Improvements</h3>
@@ -68,5 +63,4 @@
     </div>
 </div>
 
-<!-- Load Bootstrap Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
